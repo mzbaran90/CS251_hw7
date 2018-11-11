@@ -88,7 +88,7 @@ public class Sets {
 	public static List<Integer> union(List<Integer> list1, List<Integer> list2){
 		//TODO
 		
-		List<Integer> union = new LinkedList<>();
+//		List<Integer> union = new LinkedList<>();
 		
 //		//add all elements form list1 to union list
 //		for(Integer item1:list1) {
@@ -103,6 +103,8 @@ public class Sets {
 //		}
 //		Collections.sort(union);
 //		return union;
+		
+		List<Integer> union = new LinkedList<>();
 		union.addAll(list1);
 
 		for(Integer item2:list2) {
@@ -111,7 +113,7 @@ public class Sets {
 			}
 
 		}
-		Collections.sort(union);
+		sort(union);
 		return union;
 	}
 	/**
@@ -132,6 +134,7 @@ public class Sets {
 				intersection.add(item);
 			}
 		}
+		sort(intersection);
 		return intersection;
 	}
 	
@@ -149,12 +152,13 @@ public class Sets {
 		
 		List<Integer> subtract = new ArrayList<>();
 		
-		for(Integer item: list2) {
-			if(!(list1.indexOf(item) == -1)) {
-				list1.remove(list1.indexOf(item));
+		for(Integer item: list1) {
+			if(!(list2.contains(item))) {
+				subtract.add(item);
 			}
+			
 		}
-		Collections.sort(subtract);
+		sort(subtract);
 		return subtract ;
 	}
 	
@@ -166,6 +170,7 @@ public class Sets {
 	 * @param list2
 	 * @return boolean
 	 */
+	
 	public static boolean equals(List<Integer> list1, List<Integer> list2) {
 		
 		if(list1.equals(list2)) {
@@ -195,14 +200,13 @@ public class Sets {
 		
 		//sort both lists
 		
-		Collections.sort(list1);
-		Collections.sort(list2);
+		sort(list1);
+		sort(list2);
 		
 		// iterate through both lists to mimic tuples
-		for(Integer item1:list1) {
-			for(Integer item2: list2) {
-				String combineProduct = Integer.toString(item1, item2);
-				cartesianProduct.add(combineProduct);
+		for(Integer innerInt:list1) {
+			for(Integer outerInt: list2) {
+				cartesianProduct.add("(" + innerInt.toString() + "," + outerInt.toString()+ ")");
 			}
 		}
 		return cartesianProduct;
@@ -219,5 +223,7 @@ public class Sets {
 		//TODO
 		Collections.sort(list);
 	}
+	
+	
 	
 }
