@@ -86,6 +86,8 @@ public class SetDriver {
 		
 		System.out.println(Sets.cartesianProduct(list2, list4));
 		
+		//complement
+		display(Sets.complement(list2, -1, 15));
 	
 	}
 	public static void display (List<Integer> list) {

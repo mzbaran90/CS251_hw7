@@ -224,6 +224,15 @@ public class Sets {
 		Collections.sort(list);
 	}
 	
-	
-	
+	public static List<Integer> complement (List <Integer> list, int lowerBound, int upperBound){
+ 		// lower = -2 upper = 4 list = -2 0 output = -1 1 2 3 4
+		List<Integer> tempList = new LinkedList<>();
+		for(int i = lowerBound; i <= upperBound; i++){
+			if(!(list.contains(i))){
+				tempList.add(i);
+			}
+
+		}
+		return tempList;
+	}	
 }
