@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -298,6 +299,23 @@ public class JUnit {
 		assertEquals(new Integer(14), testLink.get(5));
 		assertEquals(new Integer(35), testLink.get(6));
 		
+	}
+	
+	public void testComplements() {
+		
+		List<Integer> testComplement = new ArrayList<>();
+		testComplement.addAll(Arrays.asList(-4, 0, 3, 4, 5, 10));
+		
+		
+		List<Integer> complementProduct = Sets.complement(testComplement, -5, 1); 
+		//output {-5, -3, -2, -1, 1, 2, 6 ,7, 8, 9, 11}
+		
+		assertEquals(new Integer(-2), complementProduct.get(2));
+		assertEquals(new Integer(9), complementProduct.get(9));
+		assertEquals(10, complementProduct.size());
+		
+		assertFalse(complementProduct.contains(-4));
+		assertFalse(complementProduct.contains(5));
 	}
 	
 }
