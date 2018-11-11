@@ -209,6 +209,11 @@ public class Sets {
 				cartesianProduct.add("(" + innerInt.toString() + "," + outerInt.toString()+ ")");
 			}
 		}
+		//check for empty, add blank entry if so
+		if(cartesianProduct.isEmpty()){
+			cartesianProduct.add("");
+			
+		}
 		return cartesianProduct;
 	}
 	
